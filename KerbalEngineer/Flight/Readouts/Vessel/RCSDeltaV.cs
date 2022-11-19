@@ -44,7 +44,7 @@ namespace KerbalEngineer.Flight.Readouts.Vessel
 
         public override void Draw(Unity.Flight.ISectionModule section)
         {
-            if (SimulationProcessor.ShowDetails)
+            if (SimulationProcessor.ShowDetails && (!section.IsHud || SimulationProcessor.LastStage.RCSdeltaVStart > 0))
             {
                 this.DrawLine(SimulationProcessor.LastStage.RCSdeltaVStart.ToString("N0") + "m/s (" + TimeFormatter.ConvertToString(SimulationProcessor.LastStage.RCSBurnTime) + ")", section.IsHud);
 

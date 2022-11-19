@@ -44,7 +44,7 @@ namespace KerbalEngineer.Flight.Readouts.Vessel
 
         public override void Draw(Unity.Flight.ISectionModule section)
         {
-            if (SimulationProcessor.ShowDetails)
+            if (SimulationProcessor.ShowDetails && (!section.IsHud || SimulationProcessor.LastStage.RCSdeltaVStart > 0))
             {
                 this.DrawLine(Units.ToForce(SimulationProcessor.LastStage.RCSThrust), section.IsHud);
             }

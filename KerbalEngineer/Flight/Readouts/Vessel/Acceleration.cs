@@ -44,7 +44,7 @@ namespace KerbalEngineer.Flight.Readouts.Vessel
 
         public override void Draw(Unity.Flight.ISectionModule section)
         {
-            if (SimulationProcessor.ShowDetails)
+            if (SimulationProcessor.ShowDetails && (!section.IsHud || SimulationProcessor.LastStage.thrust > 0))
             {
                 double a_Acceleration = Vessel.SimulationProcessor.LastStage.totalMass > 0 ? Vessel.SimulationProcessor.LastStage.actualThrust / Vessel.SimulationProcessor.LastStage.totalMass : 0;
                 double m_Acceleration = Vessel.SimulationProcessor.LastStage.totalMass > 0 ? Vessel.SimulationProcessor.LastStage.thrust / Vessel.SimulationProcessor.LastStage.totalMass : 0;

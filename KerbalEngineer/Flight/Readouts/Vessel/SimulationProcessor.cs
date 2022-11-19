@@ -109,10 +109,7 @@ namespace KerbalEngineer.Flight.Readouts.Vessel
                 return;
             }
 
-            if (Stages != null && LastStage != null)
-            {
-                ShowDetails = true;
-            }
+            ShowDetails = (Stages != null && LastStage != null);
 
             if (FlightGlobals.ActiveVessel != null)
             {
