@@ -44,7 +44,7 @@ namespace KerbalEngineer.Flight.Readouts.Vessel
 
         public override void Draw(Unity.Flight.ISectionModule section)
         {
-            if (SimulationProcessor.ShowDetails)
+            if (SimulationProcessor.ShowDetails && (!section.IsHud || SimulationProcessor.LastStage.thrust > 0))
             {
                 int dec = section.IsHud ? HudDecimalPlaces : DecimalPlaces;
                 this.DrawLine(Units.ToAngle(SimulationProcessor.LastStage.thrustOffsetAngle, dec < 0 ? 1 : dec), section);

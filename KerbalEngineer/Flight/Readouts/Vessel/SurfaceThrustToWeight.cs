@@ -34,7 +34,7 @@ namespace KerbalEngineer.Flight.Readouts.Vessel {
 
         public override void Draw(Unity.Flight.ISectionModule section) {
             if (FlightGlobals.currentMainBody == null || SimulationProcessor.LastStage == null ||
-                !SimulationProcessor.ShowDetails) {
+                !SimulationProcessor.ShowDetails || (section.IsHud && SimulationProcessor.LastStage.thrust == 0)) {
                 return;
             }
             m_Actual = "N/A";
