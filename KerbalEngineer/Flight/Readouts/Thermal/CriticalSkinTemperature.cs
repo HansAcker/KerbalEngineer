@@ -34,7 +34,7 @@ namespace KerbalEngineer.Flight.Readouts.Thermal
 
         public override void Draw(Unity.Flight.ISectionModule section)
         {
-            if (ThermalProcessor.ShowDetails)
+            if (ThermalProcessor.ShowDetails && (!section.IsHud || ThermalProcessor.CriticalTemperaturePercentage >= 0.45))
             {
                 DrawLine(Units.ToTemperature(ThermalProcessor.CriticalSkinTemperature, ThermalProcessor.CriticalSkinTemperatureMax), section);
             }
